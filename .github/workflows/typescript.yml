@@ -10,24 +10,24 @@ on: push
 
 jobs:
   lint-prettier:
-  runs-on: ubuntu-latest
-  strategy:
-    fail-fast: false
-    matrix:
-      node-version: ['18.x']
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ['18.x']
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install dependencies and build
-        run: |
-          npm ci
-          npm run build
-      - name: eslint check
-        run: |
-          npx eslint .
-      - name: prettier check
-        run: |
-          npx prettier --check .
+      steps:
+        - name: Checkout repo
+          uses: actions/checkout@v4
+          with:
+            node-version: ${{ matrix.node-version }}
+        - name: Install dependencies and build
+          run: |
+            npm ci
+            npm run build
+        - name: eslint check
+          run: |
+            npx eslint .
+        - name: prettier check
+          run: |
+            npx prettier --check .
