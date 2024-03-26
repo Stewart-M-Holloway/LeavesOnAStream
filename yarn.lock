@@ -2165,7 +2165,7 @@
     "@storybook/preview-api" "7.6.17"
     "@storybook/types" "7.6.17"
 
-"@storybook/blocks@8.0.4":
+"@storybook/blocks@8.0.4", "@storybook/blocks@^8.0.4":
   version "8.0.4"
   resolved "https://registry.yarnpkg.com/@storybook/blocks/-/blocks-8.0.4.tgz#844d5882f04f3fc06c62ee057e303e72ffe53499"
   integrity sha512-9dRXk9zLJVPOmEWsSXm10XUmIfvS/tVgeBgFXNbusFQZXPpexIPNdRgB004pDGg9RvlY78ykpnd3yP143zaXMg==
@@ -2187,35 +2187,6 @@
     dequal "^2.0.2"
     lodash "^4.17.21"
     markdown-to-jsx "7.3.2"
-    memoizerific "^1.11.3"
-    polished "^4.2.2"
-    react-colorful "^5.1.2"
-    telejson "^7.2.0"
-    tocbot "^4.20.1"
-    ts-dedent "^2.0.0"
-    util-deprecate "^1.0.2"
-
-"@storybook/blocks@^7.6.6":
-  version "7.6.17"
-  resolved "https://registry.npmjs.org/@storybook/blocks/-/blocks-7.6.17.tgz"
-  integrity sha512-PsNVoe0bX1mMn4Kk3nbKZ0ItDZZ0YJnYAFJ6toAbsyBAbgzg1sce88sQinzvbn58/RT9MPKeWMPB45ZS7ggiNg==
-  dependencies:
-    "@storybook/channels" "7.6.17"
-    "@storybook/client-logger" "7.6.17"
-    "@storybook/components" "7.6.17"
-    "@storybook/core-events" "7.6.17"
-    "@storybook/csf" "^0.1.2"
-    "@storybook/docs-tools" "7.6.17"
-    "@storybook/global" "^5.0.0"
-    "@storybook/manager-api" "7.6.17"
-    "@storybook/preview-api" "7.6.17"
-    "@storybook/theming" "7.6.17"
-    "@storybook/types" "7.6.17"
-    "@types/lodash" "^4.14.167"
-    color-convert "^2.0.1"
-    dequal "^2.0.2"
-    lodash "^4.17.21"
-    markdown-to-jsx "^7.1.8"
     memoizerific "^1.11.3"
     polished "^4.2.2"
     react-colorful "^5.1.2"
@@ -2371,22 +2342,6 @@
     prettier "^2.8.0"
     recast "^0.23.1"
 
-"@storybook/components@7.6.17", "@storybook/components@^7.0.0":
-  version "7.6.17"
-  resolved "https://registry.npmjs.org/@storybook/components/-/components-7.6.17.tgz"
-  integrity sha512-lbh7GynMidA+CZcJnstVku6Nhs+YkqjYaZ+mKPugvlVhGVWv0DaaeQFVuZ8cJtUGJ/5FFU4Y+n+gylYUHkGBMA==
-  dependencies:
-    "@radix-ui/react-select" "^1.2.2"
-    "@radix-ui/react-toolbar" "^1.0.4"
-    "@storybook/client-logger" "7.6.17"
-    "@storybook/csf" "^0.1.2"
-    "@storybook/global" "^5.0.0"
-    "@storybook/theming" "7.6.17"
-    "@storybook/types" "7.6.17"
-    memoizerific "^1.11.3"
-    use-resize-observer "^9.1.0"
-    util-deprecate "^1.0.2"
-
 "@storybook/components@8.0.4":
   version "8.0.4"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-8.0.4.tgz#45f6548bfe42004bbb1533b45d9a3e65043b5fd7"
@@ -2400,6 +2355,22 @@
     "@storybook/theming" "8.0.4"
     "@storybook/types" "8.0.4"
     memoizerific "^1.11.3"
+    util-deprecate "^1.0.2"
+
+"@storybook/components@^7.0.0":
+  version "7.6.17"
+  resolved "https://registry.npmjs.org/@storybook/components/-/components-7.6.17.tgz"
+  integrity sha512-lbh7GynMidA+CZcJnstVku6Nhs+YkqjYaZ+mKPugvlVhGVWv0DaaeQFVuZ8cJtUGJ/5FFU4Y+n+gylYUHkGBMA==
+  dependencies:
+    "@radix-ui/react-select" "^1.2.2"
+    "@radix-ui/react-toolbar" "^1.0.4"
+    "@storybook/client-logger" "7.6.17"
+    "@storybook/csf" "^0.1.2"
+    "@storybook/global" "^5.0.0"
+    "@storybook/theming" "7.6.17"
+    "@storybook/types" "7.6.17"
+    memoizerific "^1.11.3"
+    use-resize-observer "^9.1.0"
     util-deprecate "^1.0.2"
 
 "@storybook/core-client@7.6.17":
@@ -6700,11 +6671,6 @@ markdown-to-jsx@7.3.2:
   version "7.3.2"
   resolved "https://registry.yarnpkg.com/markdown-to-jsx/-/markdown-to-jsx-7.3.2.tgz#f286b4d112dad3028acc1e77dfe1f653b347e131"
   integrity sha512-B+28F5ucp83aQm+OxNrPkS8z0tMKaeHiy0lHJs3LqCyDQFtWuenaIrkaVTgAm1pf1AU85LXltva86hlaT17i8Q==
-
-markdown-to-jsx@^7.1.8:
-  version "7.4.1"
-  resolved "https://registry.npmjs.org/markdown-to-jsx/-/markdown-to-jsx-7.4.1.tgz"
-  integrity sha512-GbrbkTnHp9u6+HqbPRFJbObi369AgJNXi/sGqq5HRsoZW063xR1XDCaConqq+whfEIAlzB1YPnOgsPc7B7bc/A==
 
 mathml-tag-names@^2.1.3:
   version "2.1.3"
