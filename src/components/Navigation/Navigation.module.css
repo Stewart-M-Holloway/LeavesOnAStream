@@ -1,0 +1,5 @@
+.navigation {
+  &:hover {
+    background-color: var(--mantine-color-blue-filled);
+  }
+}
