@@ -6,16 +6,16 @@ import { Tutorial } from '@/components/Tutorial/Tutorial';
 // eslint-disable-next-line prefer-const
 let tutorialScript = new LocalizedStrings({
   en: {
-      title: 'Leaves on a Stream',
-      subtitle: 'an interactive meditation experience',
-      scrollInstruction: 'scroll down to begin',
-      tutorialParagraphs: ['ENGLISH 1', 'ENGLISH 2'],
+    title: 'Leaves on a Stream',
+    subtitle: 'an interactive meditation experience',
+    scrollInstruction: 'scroll down to begin',
+    tutorialParagraphs: ['ENGLISH 1', 'ENGLISH 2'],
   },
   es: {
-      title: 'Hojas en un Arroyo',
-      subtitle: 'un experiencia de meditación interactiva',
-      scrollInstruction: 'desplácese hacia abajo para comenzar',
-      tutorialParagraphs: ['SPANISH 1', 'SPANISH 2'],
+    title: 'Hojas en un Arroyo',
+    subtitle: 'un experiencia de meditación interactiva',
+    scrollInstruction: 'desplácese hacia abajo para comenzar',
+    tutorialParagraphs: ['SPANISH 1', 'SPANISH 2'],
   },
 });
 

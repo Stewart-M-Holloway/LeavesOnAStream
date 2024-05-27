@@ -1,5 +1,14 @@
 import { useState } from 'react';
-import { Box, Collapse, NavLink, Switch, useMantineColorScheme, rem, ButtonGroup, Button } from '@mantine/core';
+import {
+  Box,
+  Collapse,
+  NavLink,
+  Switch,
+  useMantineColorScheme,
+  rem,
+  ButtonGroup,
+  Button,
+} from '@mantine/core';
 import { IconSun, IconMoonStars } from '@tabler/icons-react';
 import classes from './Navigation.module.css';
 
@@ -54,14 +63,8 @@ export function NavMenu({ opened, changeLanguage }: NavMenuProps) {
           className={classes.navigation}
           label={
             <ButtonGroup variant="text" aria-label="Basic button group">
-              <Button
-                onClick={() => changeLanguage('en')}
-              >EN
-              </Button>
-              <Button
-                onClick={() => changeLanguage('es')}
-              >ES
-              </Button>
+              <Button onClick={() => changeLanguage('en')}>EN</Button>
+              <Button onClick={() => changeLanguage('es')}>ES</Button>
             </ButtonGroup>
           }
         />
