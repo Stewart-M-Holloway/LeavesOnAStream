@@ -1,31 +1,38 @@
-import { Grid } from '@mantine/core';
-import { Welcome } from '../components/Tutorial/Welcome/Welcome';
-import { Scroll } from '../components/Tutorial/Scroll/Scroll';
-import { TutorialLeaf } from '@/components/Tutorial/TutorialLeaf/TutorialLeaf';
+import { useEffect, useState } from 'react';
+import LocalizedStrings from 'react-localization';
 import { Navigation } from '@/components/Navigation/Navigation';
-import { TutorialParagraph } from '@/components/Tutorial/TutorialParagraph/TutorialParagraph';
+import { Tutorial } from '@/components/Tutorial/Tutorial';
+
+// eslint-disable-next-line prefer-const
+let tutorialScript = new LocalizedStrings({
+  en: {
+    title: 'Leaves on a Stream',
+    subtitle: 'an interactive meditation experience',
+    scrollInstruction: 'scroll down to begin',
+    tutorialParagraphs: ['ENGLISH 1', 'ENGLISH 2'],
+  },
+  es: {
+    title: 'Hojas en un Arroyo',
+    subtitle: 'un experiencia de meditación interactiva',
+    scrollInstruction: 'desplácese hacia abajo para comenzar',
+    tutorialParagraphs: ['SPANISH 1', 'SPANISH 2'],
+  },
+});
 
 export function HomePage() {
+  const [language, setLanguage] = useState('en');
+  const changeLanguage = (languageCode: string) => {
+    setLanguage(languageCode);
+    tutorialScript.setLanguage(languageCode);
+  };
+  useEffect(() => {
+    tutorialScript.setLanguage(language);
+    setLanguage(language);
+  }, [language]);
   return (
     <>
-      <Navigation />
-      <Grid>
-        <Grid.Col span={12}>
-          <Welcome />
-        </Grid.Col>
-        <Grid.Col span={12}>
-          <TutorialLeaf />
-        </Grid.Col>
-        <Grid.Col span={12}>
-          <Scroll />
-        </Grid.Col>
-        <Grid.Col span={12}>
-          <TutorialParagraph text="TEST TEST TEST 1" />
-        </Grid.Col>
-        <Grid.Col span={12}>
-          <TutorialParagraph text="TEST TEST TEST 2" />
-        </Grid.Col>
-      </Grid>
+      <Navigation language={language} changeLanguage={changeLanguage} />
+      <Tutorial script={tutorialScript} />
     </>
   );
 }
