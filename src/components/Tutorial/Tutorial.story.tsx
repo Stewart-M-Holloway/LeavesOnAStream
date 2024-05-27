@@ -1,7 +1,7 @@
-import { Welcome } from './TutorialTitle';
+// import { Welcome } from './TutorialTitle';
 
-export default {
-  title: 'Welcome',
-};
+// export default {
+//   title: 'Welcome',
+// };
 
-export const Usage = () => <Welcome />;
+// export const Usage = () => <Welcome />;
