@@ -9,7 +9,7 @@ interface LeafProps {
 
 export function Leaf({ size = 100, fill = 'green' }: LeafProps) {
   return (
-    <ActionIcon size={size}>
+    <ActionIcon variant="transparent" size={size}>
       <MapleLeaf size={size} fill={fill} />
     </ActionIcon>
   );
