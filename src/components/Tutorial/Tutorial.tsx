@@ -11,10 +11,7 @@ interface TutorialProps {
 export function Tutorial({ script }: TutorialProps) {
   return (
     <Stack gap={0}>
-      <TutorialTitle
-        titleText={script.title}
-        subtitleText={script.subtitle}
-      />
+      <TutorialTitle titleText={script.title} subtitleText={script.subtitle} />
       <TutorialLeaf />
       <TutorialScroll text={script.scrollInstruction} />
       {script.tutorialParagraphs.map((paragraph: string, idx: number) => (
