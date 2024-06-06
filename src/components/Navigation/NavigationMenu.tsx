@@ -9,15 +9,16 @@ import {
   ButtonGroup,
   Button,
 } from '@mantine/core';
-import { IconSun, IconMoonStars } from '@tabler/icons-react';
+import { IconSun, IconMoonStars, IconHome } from '@tabler/icons-react';
 import classes from './Navigation.module.css';
 
-interface NavMenuProps {
+interface NavigationMenuProps {
   opened: boolean;
   changeLanguage: (languageCode: string) => void;
+  scrollTo: (position: { x?: number; y?: number }) => void;
 }
 
-export function NavMenu({ opened, changeLanguage }: NavMenuProps) {
+export function NavigationMenu({ opened, changeLanguage, scrollTo }: NavigationMenuProps) {
   const [toggled, setToggled] = useState(false);
   const { setColorScheme } = useMantineColorScheme({
     keepTransitions: true,
@@ -35,14 +36,16 @@ export function NavMenu({ opened, changeLanguage }: NavMenuProps) {
 
   const sunIcon = <IconSun style={{ width: rem(16), height: rem(16) }} stroke={2.5} />;
   const moonIcon = <IconMoonStars style={{ width: rem(16), height: rem(16) }} stroke={2.5} />;
+  const homeIcon = <IconHome style={{ width: rem(16), height: rem(16) }} stroke={2.5} />;
 
   return (
     <Collapse in={opened}>
       <Box style={{ width: 180 }}>
         <NavLink
           label="Home"
+          leftSection={homeIcon}
           className={classes.navigation}
-          onClick={() => window.scrollTo(0, 0)}
+          onClick={() => scrollTo({ y: 0 })}
           style={{ cursor: 'default' }}
         />
         <NavLink

@@ -1,20 +1,18 @@
-import { ActionIcon, Stack, Container, Text } from '@mantine/core';
-import { IconCaretDown } from '@tabler/icons-react';
+import { Stack, Container, Text } from '@mantine/core';
+import { useViewportSize } from '@mantine/hooks';
 
 interface TutorialScrollProps {
   text: string;
 }
 
 export function TutorialScroll({ text }: TutorialScrollProps) {
+  const { height } = useViewportSize();
   return (
-    <Container>
+    <Container h={height / 2}>
       <Stack align="center">
-        <Text ta="center" size="lg" maw={580} mx="auto" mt="xl">
+        <Text ta="center" size="lg" maw={580} mx="auto" mt="150">
           {text}
         </Text>
-        <ActionIcon>
-          <IconCaretDown />
-        </ActionIcon>
       </Stack>
     </Container>
   );

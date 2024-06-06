@@ -1,21 +1,23 @@
-import { useState } from 'react';
-import { Affix, Burger } from '@mantine/core';
-import { NavMenu } from './NavigationMenu';
+// import { useState } from 'react';
+import { Affix } from '@mantine/core';
+import { NavigationMenu } from './NavigationMenu';
 // import classes from './Navigation.module.css';
 
 interface NavigationProps {
   language: string;
   changeLanguage: (languageCode: string) => void;
+  scrollTo: (position: { x?: number; y?: number }) => void;
 }
 
-export function Navigation({ changeLanguage }: NavigationProps) {
-  const [opened, setOpened] = useState(false);
-  const title = opened ? 'Close navigation' : 'Open navigation';
+export function Navigation({ changeLanguage, scrollTo }: NavigationProps) {
+  //const [opened, setOpened] = useState(false);
+  const opened = true;
+  //const title = opened ? 'Close navigation' : 'Open navigation';
 
   return (
     <Affix position={{ top: 20, left: 20 }}>
-      <Burger opened={opened} onClick={() => setOpened((o) => !o)} title={title} />
-      <NavMenu opened={opened} changeLanguage={changeLanguage} />
+      {/* <Burger opened={opened} onClick={() => setOpened((o) => !o)} title={title} /> */}
+      <NavigationMenu opened={opened} changeLanguage={changeLanguage} scrollTo={scrollTo} />
     </Affix>
   );
 }

@@ -1,4 +1,5 @@
-import { Title, Text } from '@mantine/core';
+import { Title, Text, Container } from '@mantine/core';
+import { useViewportSize } from '@mantine/hooks';
 
 interface TutorialTitleProps {
   titleText: string;
@@ -6,9 +7,10 @@ interface TutorialTitleProps {
 }
 
 export function TutorialTitle({ titleText, subtitleText }: TutorialTitleProps) {
+  const { height } = useViewportSize();
   return (
-    <>
-      <Title ta="center" mt={200}>
+    <Container h={height / 2}>
+      <Title ta="center" mt={150}>
         <Text inherit component="span">
           {titleText}
         </Text>
@@ -16,6 +18,6 @@ export function TutorialTitle({ titleText, subtitleText }: TutorialTitleProps) {
       <Text ta="center" size="lg" maw={580} mx="auto" mt="xl">
         {subtitleText}
       </Text>
-    </>
+    </Container>
   );
 }
