@@ -22,7 +22,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@mantine/core": "7.6.1",
+    "@mantine/core": "7.10.2",
     "@mantine/hooks": "7.6.1",
     "@tabler/icons-react": "^3.2.0",
     "lint-staged": "^15.2.2",
