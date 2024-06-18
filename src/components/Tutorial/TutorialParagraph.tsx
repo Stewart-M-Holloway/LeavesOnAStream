@@ -7,9 +7,10 @@ import { TutorialLeaf } from './TutorialLeaf';
 interface TutorialParagraphProps {
   text: string;
   idx: number;
+  animateInterval: number;
 }
 
-export function TutorialParagraph({ text }: TutorialParagraphProps) {
+export function TutorialParagraph({ text, animateInterval }: TutorialParagraphProps) {
   const { height, width } = useViewportSize();
   const parallax = useParallax({
     onProgressChange: (progress) => {
@@ -22,7 +23,7 @@ export function TutorialParagraph({ text }: TutorialParagraphProps) {
   return (
     <Center h={height} ref={parallax.ref as RefObject<HTMLDivElement>}>
       <Stack gap={100}>
-        <TutorialLeaf />
+        <TutorialLeaf animateInterval={animateInterval} />
         <Text
           style={{
             width: width / 2,

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useWindowScroll } from '@mantine/hooks';
 import LocalizedStrings from 'react-localization';
 import { Navigation } from '@/components/Navigation/Navigation';
@@ -41,10 +41,20 @@ export function HomePage() {
     tutorialScript.setLanguage(languageCode);
   };
   const [, scrollTo] = useWindowScroll();
+
+  const FPS = 24;
+  const [animateInterval, setAnimateInterval] = useState(0);
+  useEffect(() => {
+    if (animateInterval >= 0) {
+      setTimeout(() => {
+          setAnimateInterval(animateInterval + 1);
+      }, 1000 / FPS);
+    }
+  }, [animateInterval]);
   return (
     <>
       <Navigation language={language} changeLanguage={changeLanguage} scrollTo={scrollTo} />
-      <Tutorial script={tutorialScript} />
+      <Tutorial script={tutorialScript} animateInterval={animateInterval} />
     </>
   );
 }
