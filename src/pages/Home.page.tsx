@@ -47,7 +47,7 @@ export function HomePage() {
   useEffect(() => {
     if (animateInterval >= 0) {
       setTimeout(() => {
-          setAnimateInterval(animateInterval + 1);
+        setAnimateInterval(animateInterval + 1);
       }, 1000 / FPS);
     }
   }, [animateInterval]);

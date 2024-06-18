@@ -1,7 +1,11 @@
 import { useMouse } from '@mantine/hooks';
 import { useEffect, useState } from 'react';
 import { ActionIcon } from '@mantine/core';
-import { getRotationAcceleration, MIN_ROTATION_VELOCITY, MAX_ROTATION_VELOCITY } from './LeafPhysics';
+import {
+  getRotationAcceleration,
+  MIN_ROTATION_VELOCITY,
+  MAX_ROTATION_VELOCITY,
+} from './LeafPhysics';
 import { MAPLE_LEAF_PATH } from './LeafTypes';
 
 interface LeafProps {
@@ -26,10 +30,10 @@ export function Leaf({ animateInterval, size = 100, fill = 'green' }: LeafProps)
       setDir(-dir);
     }
     setW((prev) => Math.min(Math.max(prev + a, MIN_ROTATION_VELOCITY), MAX_ROTATION_VELOCITY));
-    setR((prev) => prev + (dir * w));
+    setR((prev) => prev + dir * w);
     setXPrev((prev) => [...prev.slice(1, VELOCITY_WINDOW), x]);
     setYPrev((prev) => [...prev.slice(1, VELOCITY_WINDOW), y]);
-    }, [animateInterval]);
+  }, [animateInterval]);
   return (
     <ActionIcon variant="transparent" size={size}>
       <svg

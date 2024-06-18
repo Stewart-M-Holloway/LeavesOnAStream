@@ -11,7 +11,11 @@ export function TutorialLeaf({ animateInterval }: TutoriaLeafProps) {
     <Parallax translateY={[0, 100]}>
       <Container>
         <Center style={{ width: '100%', height: 0 }}>
-          <Leaf animateInterval={animateInterval} size={100} fill="var(--mantine-color-indigo-filled)" />
+          <Leaf
+            animateInterval={animateInterval}
+            size={100}
+            fill="var(--mantine-color-indigo-filled)"
+          />
         </Center>
       </Container>
     </Parallax>

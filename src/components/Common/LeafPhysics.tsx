@@ -32,41 +32,39 @@ const MOUSE_DOWN_MULTIPLIER = 10;
 const K_DRAG = 0.01;
 
 export const getXYRelativeCenter = (x: number, y: number, size: number) => ({
-    xRel: (x - size / 2) / (size / 2),
-    yRel: (-y + size / 2) / (size / 2),
+  xRel: (x - size / 2) / (size / 2),
+  yRel: (-y + size / 2) / (size / 2),
 });
 
-const getMeanDiff = (arr: number[]) => (
-    arr.reduce((acc, val, idx) => acc + (idx > 0 ? val - arr[idx - 1] : 0), 0) / arr.length
-);
+const getMeanDiff = (arr: number[]) =>
+  arr.reduce((acc, val, idx) => acc + (idx > 0 ? val - arr[idx - 1] : 0), 0) / arr.length;
 
 export const getXYVelocity = (
-    x: number,
-    y: number,
-    xPrev: number[],
-    yPrev: number[],
-    size: number
+  x: number,
+  y: number,
+  xPrev: number[],
+  yPrev: number[],
+  size: number
 ) => ({
-
-    xVel: getMeanDiff([...xPrev, x]) / size,
-    yVel: getMeanDiff([...yPrev, y]) / size,
+  xVel: getMeanDiff([...xPrev, x]) / size,
+  yVel: getMeanDiff([...yPrev, y]) / size,
 });
 
 export const getVectorMagnitude = (x: number, y: number) => Math.sqrt(x ** 2 + y ** 2);
 
-export const getTheta = (xRel: number, yRel: number, xVel: number, yVel: number) => (
-    (xRel === 0 && yRel === 0) || (xVel === 0 && yVel === 0) ? 0 :
-    Math.atan2(yRel, xRel) - Math.atan2(yVel, xVel)
-);
+export const getTheta = (xRel: number, yRel: number, xVel: number, yVel: number) =>
+  (xRel === 0 && yRel === 0) || (xVel === 0 && yVel === 0)
+    ? 0
+    : Math.atan2(yRel, xRel) - Math.atan2(yVel, xVel);
 
 export const getRotationalDrag = (w: number) => -K_DRAG * w ** 2;
 
 export const getTorque = (
-    xRel: number,
-    yRel: number,
-    xVel: number,
-    yVel: number,
-    isMouseDown: boolean
+  xRel: number,
+  yRel: number,
+  xVel: number,
+  yVel: number,
+  isMouseDown: boolean
 ) => {
   const d = getVectorMagnitude(xRel, yRel);
   const v = getVectorMagnitude(xVel, yVel);
@@ -75,15 +73,15 @@ export const getTorque = (
 };
 
 export const getRotationAcceleration = (
-    w: number,
-    size: number,
-    x: number,
-    y: number,
-    xPrev: number[],
-    yPrev: number[],
-    isMouseDown: boolean
+  w: number,
+  size: number,
+  x: number,
+  y: number,
+  xPrev: number[],
+  yPrev: number[],
+  isMouseDown: boolean
 ) => {
-    const dragForce = getRotationalDrag(w);
+  const dragForce = getRotationalDrag(w);
   const { xRel, yRel } = getXYRelativeCenter(x, y, size);
   const { xVel, yVel } = getXYVelocity(x, y, xPrev, yPrev, size);
   let torque = 0;
