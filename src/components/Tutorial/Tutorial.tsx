@@ -6,16 +6,17 @@ import { TutorialParagraph } from '@/components/Tutorial/TutorialParagraph';
 
 interface TutorialProps {
   script: any;
+  animateInterval: number;
 }
 
-export function Tutorial({ script }: TutorialProps) {
+export function Tutorial({ script, animateInterval }: TutorialProps) {
   return (
     <Stack gap={0}>
       <TutorialTitle titleText={script.title} subtitleText={script.subtitle} />
-      <TutorialLeaf />
+      <TutorialLeaf animateInterval={animateInterval} />
       <TutorialScroll text={script.scrollInstruction} />
       {script.tutorialParagraphs.map((paragraph: string, idx: number) => (
-        <TutorialParagraph key={idx} text={paragraph} idx={idx} />
+        <TutorialParagraph key={idx} text={paragraph} idx={idx} animateInterval={animateInterval} />
       ))}
     </Stack>
   );
