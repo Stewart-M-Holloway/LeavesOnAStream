@@ -3,6 +3,7 @@ import { useWindowScroll } from '@mantine/hooks';
 import LocalizedStrings from 'react-localization';
 import { Navigation } from '@/components/Navigation/Navigation';
 import { Tutorial } from '@/components/Tutorial/Tutorial';
+import { Journal } from '@/components/Common/Journal/Journal';
 
 // eslint-disable-next-line prefer-const
 let tutorialScript = new LocalizedStrings({
@@ -54,6 +55,7 @@ export function HomePage() {
   return (
     <>
       <Navigation language={language} changeLanguage={changeLanguage} scrollTo={scrollTo} />
+      <Journal />
       <Tutorial script={tutorialScript} animateInterval={animateInterval} />
     </>
   );
