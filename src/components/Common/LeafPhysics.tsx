@@ -1,6 +1,6 @@
 /**
  *
- * To simulate the physics of a leaf rotating on the surface of the area, we use the following steps:
+ * To simulate the physics of a leaf rotating on the surface of the area, we use the following steps
  *
  * 1. Calculate the net rotational force acting on the leaf.
  *   - This is the sum of the Torque from mouse movement and the Rotational Drag acting on the leaf.
@@ -13,7 +13,8 @@
  * |F_drag| = -K_DRAG * |w|^2
  * Where:
  * - |w| is the angular velocity of the leaf.
- * - K_DRAG = 0.5 * p * A * C_d, all of which are constants in this scenario. We pick a value based on trial and error.
+ * - K_DRAG = 0.5 * p * A * C_d, all of which are constants in this scenario. We pick a value based
+ *   on trial and error.
  *
  * The net Torque from mouse movement can be given by the equation:
  * |T_mouse| = d * |F_mouse| * sin(theta) = r * M_MOUSE * |V_mouse| * sin(theta)
@@ -36,15 +37,16 @@ export const getXYRelativeCenter = (x: number, y: number, size: number) => ({
   yRel: (-y + size / 2) / (size / 2),
 });
 
-const getMeanDiff = (arr: number[]) =>
-  arr.reduce((acc, val, idx) => acc + (idx > 0 ? val - arr[idx - 1] : 0), 0) / arr.length;
+const getMeanDiff = (arr: number[]) => (
+  arr.reduce((acc, val, idx) => acc + (idx > 0 ? val - arr[idx - 1] : 0), 0) / arr.length
+);
 
 export const getXYVelocity = (
   x: number,
   y: number,
   xPrev: number[],
   yPrev: number[],
-  size: number
+  size: number,
 ) => ({
   xVel: getMeanDiff([...xPrev, x]) / size,
   yVel: getMeanDiff([...yPrev, y]) / size,
@@ -52,10 +54,11 @@ export const getXYVelocity = (
 
 export const getVectorMagnitude = (x: number, y: number) => Math.sqrt(x ** 2 + y ** 2);
 
-export const getTheta = (xRel: number, yRel: number, xVel: number, yVel: number) =>
+export const getTheta = (xRel: number, yRel: number, xVel: number, yVel: number) => (
   (xRel === 0 && yRel === 0) || (xVel === 0 && yVel === 0)
     ? 0
-    : Math.atan2(yRel, xRel) - Math.atan2(yVel, xVel);
+    : Math.atan2(yRel, xRel) - Math.atan2(yVel, xVel)
+);
 
 export const getRotationalDrag = (w: number) => -K_DRAG * w ** 2;
 
@@ -64,7 +67,7 @@ export const getTorque = (
   yRel: number,
   xVel: number,
   yVel: number,
-  isMouseDown: boolean
+  isMouseDown: boolean,
 ) => {
   const d = getVectorMagnitude(xRel, yRel);
   const v = getVectorMagnitude(xVel, yVel);
@@ -79,7 +82,7 @@ export const getRotationAcceleration = (
   y: number,
   xPrev: number[],
   yPrev: number[],
-  isMouseDown: boolean
+  isMouseDown: boolean,
 ) => {
   const dragForce = getRotationalDrag(w);
   const { xRel, yRel } = getXYRelativeCenter(x, y, size);

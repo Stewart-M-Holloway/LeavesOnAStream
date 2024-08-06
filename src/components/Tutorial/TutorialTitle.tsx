@@ -6,7 +6,7 @@ interface TutorialTitleProps {
   subtitleText: string;
 }
 
-export function TutorialTitle({ titleText, subtitleText }: TutorialTitleProps) {
+export default function TutorialTitle({ titleText, subtitleText }: TutorialTitleProps) {
   const { height } = useViewportSize();
   return (
     <Container h={height / 2}>

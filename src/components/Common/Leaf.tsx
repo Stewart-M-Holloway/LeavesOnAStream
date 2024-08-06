@@ -17,7 +17,7 @@ interface LeafProps {
 
 const VELOCITY_WINDOW = 5;
 
-export function Leaf({ animateInterval, size = 100, fill = 'green' }: LeafProps) {
+export default function Leaf({ animateInterval, size, fill }: LeafProps) {
   const { ref, x, y } = useMouse();
   const [xPrev, setXPrev] = useState(new Array(VELOCITY_WINDOW).fill(0));
   const [yPrev, setYPrev] = useState(new Array(VELOCITY_WINDOW).fill(0));
@@ -25,7 +25,7 @@ export function Leaf({ animateInterval, size = 100, fill = 'green' }: LeafProps)
   const [w, setW] = useState(0.1 + 5 * Math.random());
   const [dir, setDir] = useState(Math.random() > 0.5 ? 1 : -1);
   useEffect(() => {
-    const a = getRotationAcceleration(w, size, x, y, xPrev, yPrev, true);
+    const a = getRotationAcceleration(w, size || 100, x, y, xPrev, yPrev, true);
     if (Math.abs(w + a) <= MIN_ROTATION_VELOCITY) {
       setDir(-dir);
     }
@@ -52,3 +52,8 @@ export function Leaf({ animateInterval, size = 100, fill = 'green' }: LeafProps)
     </ActionIcon>
   );
 }
+
+Leaf.defaultProps = {
+  size: 100, // Add a default value for the "size" prop
+  fill: '#000000', // Add a default value for the "fill" prop
+};
