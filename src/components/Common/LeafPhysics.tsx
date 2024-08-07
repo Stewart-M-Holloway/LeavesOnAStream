@@ -1,6 +1,6 @@
 /**
  *
- * To simulate the physics of a leaf rotating on the surface of the area, we use the following steps:
+ * To simulate the physics of a leaf rotating on the surface of the area, we use the following steps
  *
  * 1. Calculate the net rotational force acting on the leaf.
  *   - This is the sum of the Torque from mouse movement and the Rotational Drag acting on the leaf.
@@ -13,7 +13,8 @@
  * |F_drag| = -K_DRAG * |w|^2
  * Where:
  * - |w| is the angular velocity of the leaf.
- * - K_DRAG = 0.5 * p * A * C_d, all of which are constants in this scenario. We pick a value based on trial and error.
+ * - K_DRAG = 0.5 * p * A * C_d, all of which are constants in this scenario. We pick a value based
+ *   on trial and error.
  *
  * The net Torque from mouse movement can be given by the equation:
  * |T_mouse| = d * |F_mouse| * sin(theta) = r * M_MOUSE * |V_mouse| * sin(theta)

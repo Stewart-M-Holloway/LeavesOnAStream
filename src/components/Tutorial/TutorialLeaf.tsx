@@ -1,12 +1,12 @@
 import { Parallax } from 'react-scroll-parallax';
 import { Center, Container } from '@mantine/core';
-import { Leaf } from '@/components/Common/Leaf';
+import Leaf from '@/components/Common/Leaf';
 
 interface TutoriaLeafProps {
   animateInterval: number;
 }
 
-export function TutorialLeaf({ animateInterval }: TutoriaLeafProps) {
+export default function TutorialLeaf({ animateInterval }: TutoriaLeafProps) {
   return (
     <Parallax translateY={[0, 100]}>
       <Container>

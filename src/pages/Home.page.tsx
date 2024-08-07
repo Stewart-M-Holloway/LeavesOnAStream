@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useWindowScroll } from '@mantine/hooks';
 import LocalizedStrings from 'react-localization';
-import { Navigation } from '@/components/Navigation/Navigation';
-import { Tutorial } from '@/components/Tutorial/Tutorial';
+import Navigation from '@/components/Navigation/Navigation';
+import Tutorial from '@/components/Tutorial/Tutorial';
+import Journal from '@/components/Common/Journal/Journal';
 
 // eslint-disable-next-line prefer-const
 let tutorialScript = new LocalizedStrings({
@@ -34,14 +35,19 @@ let tutorialScript = new LocalizedStrings({
   },
 });
 
-export function HomePage() {
-  const [language, setLanguage] = useState('en');
-  const changeLanguage = (languageCode: string) => {
-    setLanguage(languageCode);
-    tutorialScript.setLanguage(languageCode);
-  };
+export default function HomePage() {
+  // Window Scroll
   const [, scrollTo] = useWindowScroll();
+  // Localization
+  // const [language, setLanguage] = useState('en');
+  // const changeLanguage = (languageCode: string) => {
+  //   setLanguage(languageCode);
+  //   tutorialScript.setLanguage(languageCode);
+  // };
+  // Note Logic
+  // const [noteInHand, setNoteInHand] = useState('');
 
+  // Leaf Animation
   const FPS = 24;
   const [animateInterval, setAnimateInterval] = useState(0);
   useEffect(() => {
@@ -53,7 +59,8 @@ export function HomePage() {
   }, [animateInterval]);
   return (
     <>
-      <Navigation language={language} changeLanguage={changeLanguage} scrollTo={scrollTo} />
+      <Navigation scrollTo={scrollTo} />
+      <Journal />
       <Tutorial script={tutorialScript} animateInterval={animateInterval} />
     </>
   );

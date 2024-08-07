@@ -1,12 +1,12 @@
 interface MapleLeafProps extends React.ComponentPropsWithoutRef<'svg'> {
   ref: React.Ref<SVGSVGElement>;
   rotation: number;
-  size?: number | string;
-  fill?: string;
-  style?: React.CSSProperties;
+  size: number | string;
+  fill: string;
+  style: React.CSSProperties;
 }
 
-export function MapleLeaf({ ref, rotation, size, fill, style }: MapleLeafProps) {
+export default function MapleLeaf({ ref, rotation, size, fill, style }: MapleLeafProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -2,15 +2,15 @@ import { RefObject } from 'react';
 import { Center, Stack, Text } from '@mantine/core';
 import { useViewportSize } from '@mantine/hooks';
 import { useParallax } from 'react-scroll-parallax';
-import { TutorialLeaf } from './TutorialLeaf';
+import TutorialLeaf from './TutorialLeaf';
 
 interface TutorialParagraphProps {
   text: string;
-  idx: number;
+  // idx: number;
   animateInterval: number;
 }
 
-export function TutorialParagraph({ text, animateInterval }: TutorialParagraphProps) {
+export default function TutorialParagraph({ text, animateInterval }: TutorialParagraphProps) {
   const { height, width } = useViewportSize();
   const parallax = useParallax({
     onProgressChange: (progress) => {
