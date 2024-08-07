@@ -15,11 +15,11 @@ export default function Tutorial({ script, animateInterval }: TutorialProps) {
       <TutorialTitle titleText={script.title} subtitleText={script.subtitle} />
       <TutorialLeaf animateInterval={animateInterval} />
       <TutorialScroll text={script.scrollInstruction} />
-      {script.tutorialParagraphs.map((paragraph: string, idx: number) => (
+      {script.tutorialParagraphs.map((paragraph: string) => (
         <TutorialParagraph
           key={paragraph}
           text={paragraph}
-          idx={idx}
+          // idx={idx}
           animateInterval={animateInterval}
         />
       ))}
