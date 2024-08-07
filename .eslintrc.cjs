@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['mantine', 'airbnb', 'airbnb-typescript'],
+  extends: ['mantine'],
   parserOptions: {
     project: './tsconfig.json',
   },

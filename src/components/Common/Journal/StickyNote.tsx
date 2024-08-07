@@ -10,9 +10,7 @@ export interface StickyNoteProps {
   setStickyNotes: (notes: StickyNoteProps[]) => void;
 }
 
-export function StickyNote({
-  index, text, color, stickyNotes, setStickyNotes,
-}: StickyNoteProps) {
+export function StickyNote({ index, text, color, stickyNotes, setStickyNotes }: StickyNoteProps) {
   const [value, setValue] = useState(text);
   const firstRender = useIsFirstRender();
   const { hovered, ref: hoveredRef } = useHover();

@@ -8,9 +8,7 @@ import {
   useViewportSize,
 } from '@mantine/hooks';
 
-import {
-  Affix, Box, Grid, Text, Paper, Transition, Textarea,
-} from '@mantine/core';
+import { Affix, Box, Grid, Text, Paper, Transition, Textarea } from '@mantine/core';
 import { StickyNote, StickyNoteProps } from './StickyNote';
 import { AddStickyNoteWidget } from './AddStickyNoteWidget';
 
@@ -24,10 +22,8 @@ export default function Journal() {
   const { height, width } = useViewportSize();
 
   // Journal State
-  const [
-    colorPickerOpened,
-    { open: colorPickerOpen, close: colorPickerClose },
-  ] = useDisclosure(false);
+  const [colorPickerOpened, { open: colorPickerOpen, close: colorPickerClose }] =
+    useDisclosure(false);
   const [colorPopoverOpened, setColorPopoverOpened] = useState(false);
   const [journalOpen, setJournalOpen] = useState(false);
   const clickOutsideJournalRef = useClickOutside(() => setJournalOpen(false));
