@@ -53,11 +53,10 @@ export const getXYVelocity = (
 
 export const getVectorMagnitude = (x: number, y: number) => Math.sqrt(x ** 2 + y ** 2);
 
-export const getTheta = (xRel: number, yRel: number, xVel: number, yVel: number) => (
+export const getTheta = (xRel: number, yRel: number, xVel: number, yVel: number) =>
   (xRel === 0 && yRel === 0) || (xVel === 0 && yVel === 0)
     ? 0
-    : Math.atan2(yRel, xRel) - Math.atan2(yVel, xVel)
-);
+    : Math.atan2(yRel, xRel) - Math.atan2(yVel, xVel);
 
 export const getRotationalDrag = (w: number) => -K_DRAG * w ** 2;
 
@@ -66,7 +65,7 @@ export const getTorque = (
   yRel: number,
   xVel: number,
   yVel: number,
-  isMouseDown: boolean,
+  isMouseDown: boolean
 ) => {
   const d = getVectorMagnitude(xRel, yRel);
   const v = getVectorMagnitude(xVel, yVel);
@@ -81,7 +80,7 @@ export const getRotationAcceleration = (
   y: number,
   xPrev: number[],
   yPrev: number[],
-  isMouseDown: boolean,
+  isMouseDown: boolean
 ) => {
   const dragForce = getRotationalDrag(w);
   const { xRel, yRel } = getXYRelativeCenter(x, y, size);
