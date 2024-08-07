@@ -24,10 +24,7 @@ export function StickyNote({
 
   return (
     <Paper shadow="xs" p="xs" ref={hoveredRef} style={{ backgroundColor: color, cursor: 'grab' }}>
-      <CloseButton
-        onClick={() => removeStickyNote()}
-        style={{ opacity: hovered ? 1 : 0 }}
-      />
+      <CloseButton onClick={() => removeStickyNote()} style={{ opacity: hovered ? 1 : 0 }} />
       <TextInput
         ref={focusTrapRef}
         value={value}

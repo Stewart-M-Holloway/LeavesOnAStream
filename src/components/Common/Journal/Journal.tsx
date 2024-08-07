@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import {
-  useClickOutside, useDisclosure, useFocusWithin, useIsFirstRender, useMergedRef, useViewportSize,
+  useClickOutside,
+  useDisclosure,
+  useFocusWithin,
+  useIsFirstRender,
+  useMergedRef,
+  useViewportSize,
 } from '@mantine/hooks';
 
 import {
@@ -27,10 +32,7 @@ export default function Journal() {
   const [journalOpen, setJournalOpen] = useState(false);
   const clickOutsideJournalRef = useClickOutside(() => setJournalOpen(false));
   const { ref: jornalFocusRef, focused: journalFocused } = useFocusWithin();
-  const mergedJournalRef = useMergedRef(
-    clickOutsideJournalRef,
-    jornalFocusRef,
-  );
+  const mergedJournalRef = useMergedRef(clickOutsideJournalRef, jornalFocusRef);
   const firstRender = useIsFirstRender();
 
   // Sticky Notes
@@ -38,18 +40,32 @@ export default function Journal() {
   if (firstRender) {
     setStickyNotes([
       {
-        index: 0, text: 'anxious', color: 'var(--mantine-color-yellow-5)', stickyNotes, setStickyNotes,
+        index: 0,
+        text: 'anxious',
+        color: 'var(--mantine-color-yellow-5)',
+        stickyNotes,
+        setStickyNotes,
       },
       {
-        index: 1, text: 'bored', color: 'var(--mantine-color-blue-5)', stickyNotes, setStickyNotes,
+        index: 1,
+        text: 'bored',
+        color: 'var(--mantine-color-blue-5)',
+        stickyNotes,
+        setStickyNotes,
       },
     ]);
   }
   const addStickyNote = (text: string, color: string) => {
-    setStickyNotes([...stickyNotes,
+    setStickyNotes([
+      ...stickyNotes,
       {
-        index: stickyNotes.length, text, color, stickyNotes, setStickyNotes,
-      }]);
+        index: stickyNotes.length,
+        text,
+        color,
+        stickyNotes,
+        setStickyNotes,
+      },
+    ]);
   };
 
   // Journal Animation
@@ -115,7 +131,12 @@ export default function Journal() {
                 </Paper>
               </Grid.Col>
               <Grid.Col span={6}>
-                <Paper h={height / 2} shadow="xs" p="xl" style={{ ...transitionStyle, display: 'block', cursor: 'grab' }}>
+                <Paper
+                  h={height / 2}
+                  shadow="xs"
+                  p="xl"
+                  style={{ ...transitionStyle, display: 'block', cursor: 'grab' }}
+                >
                   <Textarea
                     label="I am having the thought that..."
                     placeholder="Enter your thought here"

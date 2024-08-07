@@ -1,5 +1,11 @@
 import {
-  ActionIcon, ActionIconGroup, Button, ColorPicker, Modal, Popover, Text,
+  ActionIcon,
+  ActionIconGroup,
+  Button,
+  ColorPicker,
+  Modal,
+  Popover,
+  Text,
 } from '@mantine/core';
 import { IconCirclePlus, IconPalette } from '@tabler/icons-react';
 import { useState } from 'react';
@@ -48,7 +54,12 @@ export function AddStickyNoteWidget({
         <Button onClick={() => onAddColorPickerStickyNote()}>Add Sticky Note</Button>
       </Modal>
       <Popover.Target>
-        <ActionIcon variant="transparent" size="xl" onClick={() => setColorPopoverOpened(true)} disabled={numStickyNotes >= 4}>
+        <ActionIcon
+          variant="transparent"
+          size="xl"
+          onClick={() => setColorPopoverOpened(true)}
+          disabled={numStickyNotes >= 4}
+        >
           <IconCirclePlus />
         </ActionIcon>
       </Popover.Target>
@@ -62,7 +73,11 @@ export function AddStickyNoteWidget({
               onClick={() => onAddPopoverStickyNote(color)}
             />
           ))}
-          <ActionIcon variant="filled" color="var(--mantine-color-gray-5)" onClick={colorPickerOpen}>
+          <ActionIcon
+            variant="filled"
+            color="var(--mantine-color-gray-5)"
+            onClick={colorPickerOpen}
+          >
             <IconPalette />
           </ActionIcon>
         </ActionIconGroup>
