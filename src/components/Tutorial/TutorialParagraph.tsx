@@ -3,14 +3,22 @@ import { Center, Stack, Text } from '@mantine/core';
 import { useViewportSize } from '@mantine/hooks';
 import { useParallax } from 'react-scroll-parallax';
 import TutorialLeaf from './TutorialLeaf';
+import { Note } from '@/types';
 
 interface TutorialParagraphProps {
   text: string;
   // idx: number;
   animateInterval: number;
+  noteInHand: Note | null;
+  setNoteInHand: (note: Note | null) => void;
 }
 
-export default function TutorialParagraph({ text, animateInterval }: TutorialParagraphProps) {
+export default function TutorialParagraph({
+  text,
+  animateInterval,
+  noteInHand,
+  setNoteInHand,
+}: TutorialParagraphProps) {
   const { height, width } = useViewportSize();
   const parallax = useParallax({
     onProgressChange: (progress) => {
@@ -23,7 +31,11 @@ export default function TutorialParagraph({ text, animateInterval }: TutorialPar
   return (
     <Center h={height} ref={parallax.ref as RefObject<HTMLDivElement>}>
       <Stack gap={100}>
-        <TutorialLeaf animateInterval={animateInterval} />
+        <TutorialLeaf
+          animateInterval={animateInterval}
+          noteInHand={noteInHand}
+          setNoteInHand={setNoteInHand}
+        />
         <Text
           style={{
             width: width / 2,

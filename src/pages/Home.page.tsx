@@ -4,6 +4,7 @@ import LocalizedStrings from 'react-localization';
 import Navigation from '@/components/Navigation/Navigation';
 import Tutorial from '@/components/Tutorial/Tutorial';
 import Journal from '@/components/Common/Journal/Journal';
+import { Note } from '@/types';
 
 // eslint-disable-next-line prefer-const
 let tutorialScript = new LocalizedStrings({
@@ -45,7 +46,7 @@ export default function HomePage() {
   //   tutorialScript.setLanguage(languageCode);
   // };
   // Note Logic
-  // const [noteInHand, setNoteInHand] = useState('');
+  const [noteInHand, setNoteInHand] = useState<Note | null>(null);
 
   // Leaf Animation
   const FPS = 24;
@@ -60,8 +61,13 @@ export default function HomePage() {
   return (
     <>
       <Navigation scrollTo={scrollTo} />
-      <Journal />
-      <Tutorial script={tutorialScript} animateInterval={animateInterval} />
+      <Journal noteInHand={noteInHand} setNoteInHand={setNoteInHand} />
+      <Tutorial
+        script={tutorialScript}
+        animateInterval={animateInterval}
+        noteInHand={noteInHand}
+        setNoteInHand={setNoteInHand}
+      />
     </>
   );
 }

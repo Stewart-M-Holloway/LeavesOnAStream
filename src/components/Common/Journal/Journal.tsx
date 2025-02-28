@@ -11,13 +11,14 @@ import {
 import { Affix, Box, Grid, Text, Paper, Transition, Textarea } from '@mantine/core';
 import { StickyNote, StickyNoteProps } from './StickyNote';
 import { AddStickyNoteWidget } from './AddStickyNoteWidget';
+import { Note } from '@/types';
 
-// interface JournalProps {
-//   noteInHand: String,
-//   setNoteInHand: (note: string) => void,
-// }
+interface JournalProps {
+  noteInHand: Note | null,
+  setNoteInHand: (note: Note | null) => void,
+}
 
-export default function Journal() {
+export default function Journal({ noteInHand, setNoteInHand }: JournalProps) {
   // Mantine Hooks
   const { height, width } = useViewportSize();
 
@@ -41,6 +42,8 @@ export default function Journal() {
         color: 'var(--mantine-color-yellow-5)',
         stickyNotes,
         setStickyNotes,
+        noteInHand,
+        setNoteInHand,
       },
       {
         index: 1,
@@ -48,6 +51,8 @@ export default function Journal() {
         color: 'var(--mantine-color-blue-5)',
         stickyNotes,
         setStickyNotes,
+        noteInHand,
+        setNoteInHand,
       },
     ]);
   }
@@ -60,6 +65,8 @@ export default function Journal() {
         color,
         stickyNotes,
         setStickyNotes,
+        noteInHand,
+        setNoteInHand,
       },
     ]);
   };
@@ -120,6 +127,8 @@ export default function Journal() {
                           color={note.color}
                           stickyNotes={stickyNotes}
                           setStickyNotes={setStickyNotes}
+                          noteInHand={noteInHand}
+                          setNoteInHand={setNoteInHand}
                         />
                       </Grid.Col>
                     ))}
