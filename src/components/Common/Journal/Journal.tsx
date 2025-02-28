@@ -14,8 +14,8 @@ import { AddStickyNoteWidget } from './AddStickyNoteWidget';
 import { Note } from '@/types';
 
 interface JournalProps {
-  noteInHand: Note | null,
-  setNoteInHand: (note: Note | null) => void,
+  noteInHand: Note | null;
+  setNoteInHand: (note: Note | null) => void;
 }
 
 export default function Journal({ noteInHand, setNoteInHand }: JournalProps) {

@@ -36,7 +36,11 @@ export function StickyNote({
       p="xs"
       ref={hoveredRef}
       onMouseDown={() => setNoteInHand({ index, color })}
-      style={{ backgroundColor: color, cursor: 'grab', opacity: noteInHand?.index === index ? 0.5 : 1 }}
+      style={{
+        backgroundColor: color,
+        cursor: 'grab',
+        opacity: noteInHand?.index === index ? 0.5 : 1,
+      }}
     >
       <CloseButton onClick={() => removeStickyNote()} style={{ opacity: hovered ? 1 : 0 }} />
       <TextInput

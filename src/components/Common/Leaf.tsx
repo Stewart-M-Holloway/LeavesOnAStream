@@ -67,11 +67,7 @@ export default function Leaf({
       >
         <path d={MAPLE_LEAF_PATH} fill={fill} />
         {notesOnLeaf.map((note, index) => (
-          <path
-            key={index}
-            d={NOTE_ON_LEAF_PATH}
-            fill={note.color}
-          />
+          <path key={index} d={NOTE_ON_LEAF_PATH} fill={note.color} />
         ))}
       </svg>
     </ActionIcon>
